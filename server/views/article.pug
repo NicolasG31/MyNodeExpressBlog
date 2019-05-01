@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h3= article.title
+    br
+    p(style='white-space:pre-wrap;')= article.body
+    br
+    h7.font-italic Written by #{author}
+    if user
+        if user.id == article.author
+            hr
+            a.btn.btn-primary(href='/articles/edit/'+article._id, style='margin:5px;') Edit
+            a.btn.btn-danger.delete-article(href='#', data-id=article._id, style='margin:5px;') Delete
